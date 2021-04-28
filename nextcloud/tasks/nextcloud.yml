@@ -1,0 +1,29 @@
+---
+- name: Download nextcloud archive
+  get_url:
+    url: "{{ nextcloud_archive_url }}"
+    dest: "/tmp/nextcloud.zip"
+
+- name: Extract nextcloud archive
+  unarchive:
+    src: "/tmp/nextcloud.zip"
+    dest: "{{ nextcloud_root_prefix }}"
+    remote_src: yes
+    owner: "{{ nextcloud_user }}"
+    group: "{{ nextcloud_group }}"
+
+- name: Template out nextcloud cron service
+  template:
+    src: "nextcloud_cron_service"
+    dest: "/etc/systemd/system/nextcloudcron.service"
+
+- name: Copy nextcloud timer
+  copy:
+    src: "nextcloud_cron_timer"
+    dest: "/etc/systemd/system/nextcloudcron.timer"
+
+- name: Enable nextcloud cron timer
+  systemd:
+    daemon_reload: yes
+    name: nextcloudcron.timer
+    enabled: yes

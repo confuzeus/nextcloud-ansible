@@ -1,0 +1,12 @@
+Alias /nextcloud "{{ nextcloud_root }}"
+
+<Directory {{ nextcloud_root }}>
+  Require all granted
+  AllowOverride All
+  Options FollowSymLinks MultiViews
+
+  <IfModule mod_dav.c>
+    Dav off
+  </IfModule>
+
+</Directory>

@@ -1,0 +1,20 @@
+---
+- name: Enable apache-badbots jail
+  copy:
+    src: "apache-badbots"
+    dest: "/etc/fail2ban/jail.d/apache-badbots.local"
+
+- name: Enable apache-botsearch jail
+  copy:
+    src: "apache-botsearch"
+    dest: "/etc/fail2ban/jail.d/apache-botsearch.local"
+
+- name: Install nextcloud filter
+  copy:
+    src: "nextcloud_filter"
+    dest: "/etc/fail2ban/filter.d/nextcloud.conf"
+
+- name: Template out nextcloud jail
+  template:
+    src: "nextcloud_jail"
+    dest: "/etc/fail2ban/jail.d/nextcloud.local"

@@ -1,0 +1,24 @@
+---
+- name: Set root password
+  user:
+    name: root
+    password: "{{ root_password_hash }}"
+
+- name: Create sshusers group
+  group:
+    name: "sshusers"
+    state: "present"
+
+- name: Create regular user
+  user:
+    name: "{{ regular_username }}"
+    password: "{{ regular_password_hash }}"
+    append: yes
+    groups: sshusers
+    shell: "/bin/bash"
+
+- name: Add public key
+  authorized_key:
+    key: "{{ ssh_pub_url }}"
+    exclusive: yes
+    user: "{{ regular_username }}"

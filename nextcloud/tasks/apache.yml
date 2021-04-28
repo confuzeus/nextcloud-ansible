@@ -1,0 +1,13 @@
+---
+- name: Template out vhost
+  template:
+    src: apache_nextcloud
+    dest: /etc/apache2/sites-available/nextcloud.conf
+
+- name: Enable nextcloud vhost and some modules
+  shell: "a2ensite nextcloud.conf && a2enmod rewrite && a2enmod headers && a2enmod env && a2enmod dir && a2enmod mime && a2enmod ssl && a2ensite default-ssl"
+
+- name: Restart apache2
+  systemd:
+    name: "apache2"
+    state: restarted

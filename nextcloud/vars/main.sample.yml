@@ -1,0 +1,23 @@
+---
+# User
+regular_username: "admin"
+ssh_pub_url: "https://github.com/confuzeus.keys"
+
+# System
+system_hostname: nextcloud
+timezone_name: "Indian/Mauritius"
+ssh_port: 50000
+
+# Auth
+root_password_hash: "$6$g5sqTXcSMXPX6fW$314fO7zF.F3ddDzt0B9ruohSHEXdwZc8kuASi.yBVk9FMR7RUuwW7prpF4VOUbqJCyRw.I94YxEXPRpBscFKo."
+regular_password_hash: "$6$g5sqTXcSMXPX6fW$314fO7zF.F3ddDzt0B9ruohSHEXdwZc8kuASi.yBVk9FMR7RUuwW7prpF4VOUbqJCyRw.I94YxEXPRpBscFKo."
+
+# Apache
+nextcloud_root_prefix: "/var/www"
+nextcloud_root: "/var/www/nextcloud/"
+
+# Nextcloud
+nextcloud_archive_url: "https://download.nextcloud.com/server/releases/nextcloud-21.0.1.zip"
+nextcloud_user: "www-data"
+nextcloud_group: "www-data"
+nextcloud_data_dir: "/usr/share/nextcloud"

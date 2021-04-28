@@ -1,0 +1,26 @@
+---
+# tasks file for nextcloud
+- name: Import system tasks
+  import_tasks: system.yml
+
+- name: Import package manager tasks
+  import_tasks: packages.yml
+
+- name: Import account management tasks
+  import_tasks: users.yml
+
+- name: Import apache tasks
+  import_tasks: apache.yml
+
+- name: Import nextcloud tasks
+  import_tasks: nextcloud.yml
+
+- name: Import fail2ban tasks
+  import_tasks: fail2ban.yml
+
+# Run ssh and firewall last because they will break connection
+- name: Import sshd config tasks
+  import_tasks: ssh.yml
+
+- name: Import firewall tasks
+  import_tasks: firewall.yml

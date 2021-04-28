@@ -1,0 +1,42 @@
+---
+- name: Update all packages
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+
+- name: Install apt packages
+  apt:
+    name:
+      - "fail2ban"
+      - "ufw"
+      - "unzip"
+      - "apache2"
+      - libapache2-mod-php
+      - "ffmpeg"
+      - "imagemagick"
+      - "libxml2"
+      - "libreoffice"
+      - "php"
+      - "php-ctype"
+      - "php-curl"
+      - "php-dom"
+      - "php-gd"
+      - "php-iconv"
+      - "php-json"
+      - "php-mbstring"
+      - "php-posix"
+      - "php-zip"
+      - "php-text-figlet"
+      - "php-sqlite3"
+      - "php-fileinfo"
+      - "php-bz2"
+      - "php-intl"
+      - "php-bcmath"
+      - "php-gmp"
+      - "php-exif"
+      - "php-imagick"
+      - "php-phar"
+      - "php-xml"
+    state: latest
+    update_cache: yes
